@@ -6,8 +6,7 @@ public class Main {
         Ln ln = new Ln(1.4, 1000000);
 
         System.out.println("Math.logn( " + ln.x + " ) = " + ln.trueLn);
-        System.out.println("Naive            = " + ln.getSum(ln.naiveValues));
-        System.out.println("Smart            = " + ln.getSum(ln.smartValues));
+
         System.out.println();
 
         long endTime = System.nanoTime();
