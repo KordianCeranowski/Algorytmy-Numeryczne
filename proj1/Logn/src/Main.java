@@ -3,15 +3,12 @@ public class Main {
 
         long startTime = System.nanoTime();
 
-        Ln ln = new Ln(1.4, 1000000);
-
-        System.out.println("Math.logn( " + ln.x + " ) = " + ln.trueLn);
-
+        Ln ln = new Ln(0.1, 1000000);
         System.out.println();
-
         long endTime = System.nanoTime();
-        System.out.println(((endTime - startTime)/1000000));
-
+        System.out.println(((endTime - startTime)/1000000 + "ms"));
+//
+//        System.out.println();
 //
 //        long TEST = 50;
 //        long startTime = System.nanoTime();
