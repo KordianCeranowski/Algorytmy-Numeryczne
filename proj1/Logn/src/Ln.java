@@ -30,6 +30,7 @@ public class Ln {
     public double x;
     public double trueLn;
 
+
     //szereg McLaurina przewiduje dokładność dla wartości -1<x<=1 dla ln=(1+x)
     // wyraz to (((-1)^(n+1))/n) * x^n
 
@@ -138,8 +139,8 @@ public class Ln {
             FileWriter fw=new FileWriter("C:\\Users\\Kordian\\Desktop\\LnData\\Wynik Ln(" + x + ").csv");
             fw.write( "n" +SEPARATOR+ "errNaiveNormal" +SEPARATOR+ "errNaiveReversed" +SEPARATOR+ "errSmartNormal" +SEPARATOR+ "errSmartReversed\n");
 
-            for (int i = 0; i<1000000; i++) {
-                fw.write((i+1 +SEPARATOR+ errNaiveNormal.get(i)+SEPARATOR+ errNaiveReversed.get(i) +SEPARATOR+ errSmartNormal.get(i).toString() +SEPARATOR+ errSmartReversed.get(i) + "\n").replace('.', ','));
+            for (int i = 0; i<N; i++) {
+                fw.write((i+1 +SEPARATOR+ errNaiveNormal.get(i)+SEPARATOR+ errNaiveReversed.get(i) +SEPARATOR+ errSmartNormal.get(i) +SEPARATOR+ errSmartReversed.get(i) + "\n").replace('.', ','));
                 System.out.println(i);
             }
 
@@ -153,7 +154,7 @@ public class Ln {
             FileWriter fw=new FileWriter("C:\\Users\\Kordian\\Desktop\\LnData\\Skrócony wynik Ln(" + x + ").csv");
             fw.write( "n" +SEPARATOR+ "errNaiveNormal" +SEPARATOR+ "errNaiveReversed" +SEPARATOR+ "errSmartNormal" +SEPARATOR+ "errSmartReversed\n");
 
-            for (int i = 0; i<1000000; i++) {
+            for (int i = 0; i<N; i++) {
                 fw.write(((i+1)*1000 +SEPARATOR+ errNaiveNormalShort.get(i)+SEPARATOR+ errNaiveReversedShort.get(i) +SEPARATOR+ errSmartNormalShort.get(i).toString() +SEPARATOR+ errSmartReversedShort.get(i) + "\n").replace('.', ','));
                 System.out.println(i);
             }
@@ -162,7 +163,6 @@ public class Ln {
         }catch(Exception e){System.out.println(e);}
         System.out.println("Direct Data extracted...");
     }
-
 
 
 
