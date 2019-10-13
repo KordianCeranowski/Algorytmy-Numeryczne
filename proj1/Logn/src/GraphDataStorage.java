@@ -47,29 +47,13 @@ public class GraphDataStorage {
         graph.add(new GraphIndex(numberOfTries, naiveNormErr, naiveRevErr, smartNormErr, smartRevErr));
     }
 
-//    public void getTestData(int x, double p){
-//        Ln tempLn = new Ln(x, p);
-//        double var1 = Math.abs(tempLn.getError(tempLn.getSum                 (tempLn.naiveValues)));
-//        double var2 = Math.abs(tempLn.getError(tempLn.getReverseCountedSum   (tempLn.naiveValues)));
-//        double var3 = Math.abs(tempLn.getError(tempLn.getSum                 (tempLn.smartValues)));
-//        double var4 = Math.abs(tempLn.getError(tempLn.getReverseCountedSum   (tempLn.smartValues)));
-//
-//        this.addIndex(p, var1, var2, var3, var4);
-//    }
-
-    public void scaleUpDataset(double zeroes){
-        for (GraphIndex gi : this.graph) {
-            gi.scaleUpValues(zeroes);
-        }
-    }
-
     public void packDataToCSV(){
         try{
-            FileWriter fw=new FileWriter("C:\\Users\\Kordian\\Desktop\\algorytmy numeryczne\\Direct Data.csv");
+            FileWriter fw = new FileWriter("C:\\Users\\Kordian\\Desktop\\algorytmy numeryczne\\Direct Data.csv");
             fw.write("naiveNormErr" +SEPARATOR+ "naiveRevErr" +SEPARATOR+ "smartNormErr" +SEPARATOR+ "smartRevErr\n");
 
             for (GraphIndex graphIndex : this.graph) {
-                fw.write(graphIndex.toString());
+                fw.write("xd");
             }
 
             fw.close();
