@@ -25,6 +25,7 @@ public class Ln {
     ArrayList<Double> errNaiveReversedShort;
     ArrayList<Double> errSmartReversedShort;
 
+
     protected double N;
     public double x;
     public double trueLn;
@@ -161,6 +162,8 @@ public class Ln {
         }catch(Exception e){System.out.println(e);}
         System.out.println("Direct Data extracted...");
     }
+
+
 
 
 
