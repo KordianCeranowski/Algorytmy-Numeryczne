@@ -11,26 +11,33 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="1" lean-forward="true" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
+            <state relative-caret-position="170">
+              <caret line="10" column="38" lean-forward="true" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Ln.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="549">
-              <caret line="118" column="1" lean-forward="true" selection-start-line="117" selection-end-line="118" selection-end-column="1" />
+            <state relative-caret-position="382">
+              <caret line="147" column="5" lean-forward="true" selection-start-line="147" selection-start-column="5" selection-end-line="147" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#682#756#0" />
+                <element signature="method#Ln#0;class#Ln#0" />
+                <element signature="method#Ln#1;class#Ln#0" />
                 <element signature="method#fillArrayNaive#0;class#Ln#0" />
                 <element signature="method#fillArraySmart#0;class#Ln#0" />
                 <element signature="method#fillSumsNormal#0;class#Ln#0" />
                 <element signature="method#fillSumsReversed#0;class#Ln#0" />
+                <element signature="method#getError#0;class#Ln#0" />
+                <element signature="method#fillShortenArray#0;class#Ln#0" />
+                <element signature="method#packDataToCSV#0;class#Ln#0" />
+                <element signature="method#packDataToCSV#1;class#Ln#0" />
               </folding>
             </state>
           </provider>
@@ -39,7 +46,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MyMath.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="529">
+            <state relative-caret-position="550">
               <caret line="47" column="1" selection-start-line="47" selection-start-column="1" selection-end-line="47" selection-end-column="1" />
             </state>
           </provider>
@@ -80,7 +87,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-7" />
     <option name="width" value="697" />
     <option name="height" value="735" />
@@ -155,6 +162,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24508321" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -165,8 +173,8 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.28477904" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.95090014" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.5237316" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.049099836" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -188,22 +196,15 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Main.java</url>
-          <line>6</line>
+          <url>file://$PROJECT_DIR$/src/Ln.java</url>
+          <line>122</line>
           <properties />
-          <option name="timeStamp" value="2" />
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/MyMath.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="47" column="1" selection-start-line="47" selection-start-column="1" selection-end-line="47" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/GraphDataStorage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="529">
@@ -214,24 +215,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Ln.java">
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.1/lib/src.zip!/java.base/java/lang/Double.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="549">
-          <caret line="118" column="1" lean-forward="true" selection-start-line="117" selection-end-line="118" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#fillArrayNaive#0;class#Ln#0" />
-            <element signature="method#fillArraySmart#0;class#Ln#0" />
-            <element signature="method#fillSumsNormal#0;class#Ln#0" />
-            <element signature="method#fillSumsReversed#0;class#Ln#0" />
-          </folding>
+        <state relative-caret-position="372">
+          <caret line="59" column="60" lean-forward="true" selection-start-line="59" selection-start-column="60" selection-end-line="59" selection-end-column="60" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="1" lean-forward="true" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
+        <state relative-caret-position="170">
+          <caret line="10" column="38" lean-forward="true" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MyMath.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="47" column="1" selection-start-line="47" selection-start-column="1" selection-end-line="47" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Ln.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="382">
+          <caret line="147" column="5" lean-forward="true" selection-start-line="147" selection-start-column="5" selection-end-line="147" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#682#756#0" />
+            <element signature="method#Ln#0;class#Ln#0" />
+            <element signature="method#Ln#1;class#Ln#0" />
+            <element signature="method#fillArrayNaive#0;class#Ln#0" />
+            <element signature="method#fillArraySmart#0;class#Ln#0" />
+            <element signature="method#fillSumsNormal#0;class#Ln#0" />
+            <element signature="method#fillSumsReversed#0;class#Ln#0" />
+            <element signature="method#getError#0;class#Ln#0" />
+            <element signature="method#fillShortenArray#0;class#Ln#0" />
+            <element signature="method#packDataToCSV#0;class#Ln#0" />
+            <element signature="method#packDataToCSV#1;class#Ln#0" />
+          </folding>
         </state>
       </provider>
     </entry>
