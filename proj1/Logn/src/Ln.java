@@ -1,4 +1,4 @@
-//Kordian Ceranowski©
+//Kordian Ceranowski
 import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -169,7 +169,7 @@ public class Ln {
             FileWriter fw=new FileWriter("C:\\Users\\Kordian\\Desktop\\LnData\\Skrócony wynik Ln(" + x + ").csv");
             fw.write( "n" +SEPARATOR+ "errNaiveNormal" +SEPARATOR+ "errNaiveReversed" +SEPARATOR+ "errSmartNormal" +SEPARATOR+ "errSmartReversed\n");
 
-            for (int i = 0; i<CLUSTER_SIZE; i++) {
+            for (int i = 0; i<N/CLUSTER_SIZE; i++) {
                 fw.write(((i+1)*1000 +SEPARATOR+ errNaiveNormalShort.get(i)+SEPARATOR+ errNaiveReversedShort.get(i) +SEPARATOR+ errSmartNormalShort.get(i).toString() +SEPARATOR+ errSmartReversedShort.get(i) + "\n").replace('.', ','));
                 System.out.println(i);
             }
