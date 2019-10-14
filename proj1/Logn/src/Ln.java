@@ -39,7 +39,6 @@ public class Ln {
     // wyraz to (((-1)^(n+1))/n) * x^n
 
 
-
     public Ln(double x, int N) {
 
         System.out.println(" --------- Ln(" + x + ") --------- ");
@@ -184,9 +183,9 @@ public class Ln {
     public int getPrecision(ArrayList<Double> in){
         for(int n = 0; n < N; n++){
             if(in.get(n) < 0.000001){
-                return n;
+                return n+1;
             }
         }
-        return 1000000;
+        return Integer.MAX_VALUE;
     }
 }
