@@ -37,7 +37,8 @@ public class Graph {
                     SEPARATOR + errNN +
                     SEPARATOR + errNR +
                     SEPARATOR + errSN +
-                    SEPARATOR + errSR)
+                    SEPARATOR + errSR +
+                    SEPARATOR + Math.log(x))
                     .replace('.', ',') ;
         }
     }
@@ -70,7 +71,7 @@ public class Graph {
                     ln.errNaiveNormal.get(n-1),
                     ln.errNaiveReversed.get(n-1),
                     ln.errSmartNormal.get(n-1),
-                    ln.sumsSmartReversed.get(n-1)
+                    ln.errSmartReversed.get(n-1)
                     ));
         }
     }
@@ -79,7 +80,7 @@ public class Graph {
         try{
             System.out.println("Saving graph data...");
             FileWriter fw=new FileWriter("C:\\Users\\Kordian\\Desktop\\LnData\\Graf(" + startX + "," + finishX + ")," + parts + " parts, n="+n+ ".csv");
-            fw.write( "X" +SEPARATOR+ "ValueNaiveNormal" +SEPARATOR+ "ValueNaiveReversed" +SEPARATOR+ "ValueSmartNormal" +SEPARATOR+ "ValueSmartReversed"+SEPARATOR+ "ErrorNaiveNormal" +SEPARATOR+ "ErrorNaiveReversed" +SEPARATOR+ "ErrorSmartNormal" +SEPARATOR+ "ErrorSmartReversed\n");
+            fw.write( "X" +SEPARATOR+ "ValueNaiveNormal" +SEPARATOR+ "ValueNaiveReversed" +SEPARATOR+ "ValueSmartNormal" +SEPARATOR+ "ValueSmartReversed"+SEPARATOR+ "ErrorNaiveNormal" +SEPARATOR+ "ErrorNaiveReversed" +SEPARATOR+ "ErrorSmartNormal" +SEPARATOR+ "ErrorSmartReversed" +SEPARATOR+ "TrueLogn\n");
 
             int i=0;
             for (GraphIndex gi : graphData) {

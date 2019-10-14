@@ -1,4 +1,5 @@
 public interface MyMath {
+
     static double pow(double var1, double var2){
         double tempVar = 1;
         while(var2 > 0){
@@ -30,7 +31,6 @@ public interface MyMath {
         return val * factorialREC(val-1);
     }
 
-
     //https://www.techiedelight.com/power-function-implementation-recursive-iterative/
     static double power(double x, int n){
         if (n == 0)
@@ -42,7 +42,5 @@ public interface MyMath {
         }
         return halfPower * halfPower;
     }
-
-
 
 }
