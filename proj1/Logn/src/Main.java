@@ -3,8 +3,16 @@ public class Main {
     public static void main(String[] args) {
 
         long startTime = System.nanoTime();
-//
-        Ln ln = new Ln(1.5, 100000);
+        Graph graph = new Graph(0, 2, 1000000, 1000);
+        graph.packDataToCSV();
+
+        System.out.println(((System.nanoTime() - startTime)/1000000 + "ms"));
+
+
+        System.out.println();
+//        long startTime = System.nanoTime();
+////
+//        Ln ln = new Ln(1.5, 100000);
 //        System.out.println();
 //        System.out.println(((System.nanoTime() - startTime)/1000000 + "ms"));
 
@@ -12,7 +20,7 @@ public class Main {
 
 //        startTime = System.nanoTime();
 //        ln.packDataToCSV();
-        ln.packShortDataToCSV();
+ //       ln.packShortDataToCSV();
 //        System.out.println(((System.nanoTime() - startTime)/1000000 + "ms"));
 
     }
