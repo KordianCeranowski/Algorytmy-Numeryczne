@@ -3,8 +3,10 @@ public class Main {
     public static void main(String[] args) {
 
         long startTime = System.nanoTime();
-        Graph graph = new Graph(0, 2, 32000, 100000);
+        Graph graph = new Graph(0, 2, 1000000, 10);
         graph.packDataToCSV();
+
+
 
         System.out.println(((System.nanoTime() - startTime)/1000000 + "ms"));
 
