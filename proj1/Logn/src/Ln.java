@@ -5,7 +5,6 @@ import java.util.Collections;
 
 
 public class Ln {
-    private static final String SEPARATOR = ";";
     private static final int CLUSTER_SIZE = 1000;
 
     private ArrayList<Double> naiveValues; //generated using taylor
@@ -21,23 +20,22 @@ public class Ln {
     ArrayList<Double> errNaiveReversed;
     ArrayList<Double> errSmartReversed;
 
-    ArrayList<Double> errNaiveNormalShort;
-    ArrayList<Double> errSmartNormalShort;
-    ArrayList<Double> errNaiveReversedShort;
-    ArrayList<Double> errSmartReversedShort;
+    private ArrayList<Double> errNaiveNormalShort;
+    private ArrayList<Double> errSmartNormalShort;
+    private ArrayList<Double> errNaiveReversedShort;
+    private ArrayList<Double> errSmartReversedShort;
 
     int nForNaiveNormalPrecision;
     int nForSmartNormalPrecision;
     int nForNaiveReversedPrecision;
     int nForSmartReversedPrecision;
 
-    public double x;
-    protected double N;
-    public double trueLn;
+    private double x;
+    private  double N;
+    private  double trueLn;
 
     //szereg McLaurina przewiduje dokładność dla wartości -1<x<=1 dla ln=(1+x)
     // wyraz to (((-1)^(n+1))/n) * x^n
-
 
     public Ln(double x, int N) {
 
@@ -151,11 +149,11 @@ public class Ln {
 
     public void packDataToCSV(){
         try{
-            FileWriter fw=new FileWriter("C:\\Users\\Kordian\\Desktop\\LnData\\Wynik Ln(" + x + ").csv");
-            fw.write( "n" +SEPARATOR+ "errNaiveNormal" +SEPARATOR+ "errNaiveReversed" +SEPARATOR+ "errSmartNormal" +SEPARATOR+ "errSmartReversed\n");
+            FileWriter fw=new FileWriter(Const.PATH_TO_FILE + "Wynik Ln(" + x + "), n=" +N+ ".csv");
+            fw.write( "n" +Const.SEPARATOR+ "errNaiveNormal" +Const.SEPARATOR+ "errNaiveReversed" +Const.SEPARATOR+ "errSmartNormal" +Const.SEPARATOR+ "errSmartReversed\n");
 
             for (int i = 0; i<N; i++) {
-                fw.write((i+1 +SEPARATOR+ errNaiveNormal.get(i)+SEPARATOR+ errNaiveReversed.get(i) +SEPARATOR+ errSmartNormal.get(i) +SEPARATOR+ errSmartReversed.get(i) + "\n").replace('.', ','));
+                fw.write((i+1 +Const.SEPARATOR+ errNaiveNormal.get(i)+Const.SEPARATOR+ errNaiveReversed.get(i) +Const.SEPARATOR+ errSmartNormal.get(i) +Const.SEPARATOR+ errSmartReversed.get(i) + "\n").replace('.', ','));
                 System.out.println(i);
             }
 
@@ -163,15 +161,14 @@ public class Ln {
         }catch(Exception e){System.out.println(e);}
         System.out.println("Direct Data extracted...");
     }
-
     public void packShortDataToCSV(){
         System.out.println("Buduję plik skrócony");
         try{
-            FileWriter fw=new FileWriter("C:\\Users\\Kordian\\Desktop\\LnData\\Skrócony wynik Ln(" + x + ").csv");
-            fw.write( "n" +SEPARATOR+ "errNaiveNormal" +SEPARATOR+ "errNaiveReversed" +SEPARATOR+ "errSmartNormal" +SEPARATOR+ "errSmartReversed\n");
+            FileWriter fw=new FileWriter(Const.PATH_TO_FILE + "Skrócony wynik Ln(" + x + ").csv");
+            fw.write( "n" +Const.SEPARATOR+ "errNaiveNormal" +Const.SEPARATOR+ "errNaiveReversed" +Const.SEPARATOR+ "errSmartNormal" +Const.SEPARATOR+ "errSmartReversed\n");
 
             for (int i = 0; i<N/CLUSTER_SIZE; i++) {
-                fw.write(((i+1)*1000 +SEPARATOR+ errNaiveNormalShort.get(i)+SEPARATOR+ errNaiveReversedShort.get(i) +SEPARATOR+ errSmartNormalShort.get(i).toString() +SEPARATOR+ errSmartReversedShort.get(i) + "\n").replace('.', ','));
+                fw.write(((i+1)*1000 +Const.SEPARATOR+ errNaiveNormalShort.get(i)+Const.SEPARATOR+ errNaiveReversedShort.get(i) +Const.SEPARATOR+ errSmartNormalShort.get(i).toString() +Const.SEPARATOR+ errSmartReversedShort.get(i) + "\n").replace('.', ','));
                 System.out.println(i);
             }
 

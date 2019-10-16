@@ -3,7 +3,6 @@ import java.io.FileWriter;
 import java.util.ArrayList;
 
 public class Graph {
-    private static final String SEPARATOR = ";";
     private class GraphIndex{
         double x;
         double varNN;
@@ -15,7 +14,7 @@ public class Graph {
         double errSN;
         double errSR;
 
-        public GraphIndex(double x, double varNN, double varNR, double varSN, double varSR, double errNN, double errNR, double errSN, double errSR) {
+        private GraphIndex(double x, double varNN, double varNR, double varSN, double varSR, double errNN, double errNR, double errSN, double errSR) {
             this.x = x;
             this.varNN = varNN;
             this.varNR = varNR;
@@ -30,25 +29,25 @@ public class Graph {
         @Override
         public String toString() {
             return  (x +
-                    SEPARATOR + varNN +
-                    SEPARATOR + varNR +
-                    SEPARATOR + varSN +
-                    SEPARATOR + varSR +
-                    SEPARATOR + errNN +
-                    SEPARATOR + errNR +
-                    SEPARATOR + errSN +
-                    SEPARATOR + errSR +
-                    SEPARATOR + Math.log(x))
+                    Const.SEPARATOR + varNN +
+                    Const.SEPARATOR + varNR +
+                    Const.SEPARATOR + varSN +
+                    Const.SEPARATOR + varSR +
+                    Const.SEPARATOR + errNN +
+                    Const.SEPARATOR + errNR +
+                    Const.SEPARATOR + errSN +
+                    Const.SEPARATOR + errSR +
+                    Const.SEPARATOR + Math.log(x))
                     .replace('.', ',') ;
         }
     }
 
-    int n;
-    double startX;
-    double finishX;
-    double parts;
+    private int n;
+    private double startX;
+    private double finishX;
+    private double parts;
 
-    ArrayList<GraphIndex> graphData;
+    private ArrayList<GraphIndex> graphData;
 
     public Graph(double startX, double finishX, double parts, int n) {
         this.n = n;
@@ -79,8 +78,8 @@ public class Graph {
     public void packDataToCSV(){
         try{
             System.out.println("Saving graph data...");
-            FileWriter fw=new FileWriter("C:\\Users\\Kordian\\Desktop\\LnData\\Graf(" + startX + "," + finishX + ")," + parts + " parts, n="+n+ ".csv");
-            fw.write( "X" +SEPARATOR+ "ValueNaiveNormal" +SEPARATOR+ "ValueNaiveReversed" +SEPARATOR+ "ValueSmartNormal" +SEPARATOR+ "ValueSmartReversed"+SEPARATOR+ "ErrorNaiveNormal" +SEPARATOR+ "ErrorNaiveReversed" +SEPARATOR+ "ErrorSmartNormal" +SEPARATOR+ "ErrorSmartReversed" +SEPARATOR+ "TrueLogn\n");
+            FileWriter fw=new FileWriter(Const.PATH_TO_FILE + "Graf(" + startX + "," + finishX + ")," + parts + " parts, n="+n+ ".csv");
+            fw.write( "X" +Const.SEPARATOR+ "ValueNaiveNormal" +Const.SEPARATOR+ "ValueNaiveReversed" +Const.SEPARATOR+ "ValueSmartNormal" +Const.SEPARATOR+ "ValueSmartReversed"+Const.SEPARATOR+ "ErrorNaiveNormal" +Const.SEPARATOR+ "ErrorNaiveReversed" +Const.SEPARATOR+ "ErrorSmartNormal" +Const.SEPARATOR+ "ErrorSmartReversed" +Const.SEPARATOR+ "TrueLogn\n");
 
             int i=0;
             for (GraphIndex gi : graphData) {

@@ -3,7 +3,7 @@ import java.io.FileWriter;
 import java.util.ArrayList;
 
 public class PrecisionTest {
-    private static final String SEPARATOR = ";";
+
     ArrayList<Double> currX;
     ArrayList<Integer> NN;
     ArrayList<Integer> SN;
@@ -36,11 +36,11 @@ public class PrecisionTest {
     public void packDataToCSV(double start, double stop, int times){
         try{
             System.out.println("Saving precision data...");
-            FileWriter fw=new FileWriter("C:\\Users\\Kordian\\Desktop\\LnData\\Wyniki badania precyzji(" +start + ", " + stop + ").csv");
-            fw.write( "X" +SEPARATOR+ "NaiveNormal" +SEPARATOR+ "NaiveReversed" +SEPARATOR+ "SmartNormal" +SEPARATOR+ "SmartReversed\n");
+            FileWriter fw=new FileWriter(Const.PATH_TO_FILE + "Wyniki badania precyzji(" +start + ", " + stop + "), times="+times+".csv");
+            fw.write( "X" +Const.SEPARATOR+ "NaiveNormal" +Const.SEPARATOR+ "NaiveReversed" +Const.SEPARATOR+ "SmartNormal" +Const.SEPARATOR+ "SmartReversed\n");
 
             for (int i = 0; i<times; i++) {
-                fw.write((currX.get(i) +SEPARATOR+ NN.get(i) +SEPARATOR+ SN.get(i) +SEPARATOR+ NR.get(i) +SEPARATOR+ SR.get(i) + "\n").replace('.', ','));
+                fw.write((currX.get(i) +Const.SEPARATOR+ NN.get(i) +Const.SEPARATOR+ SN.get(i) +Const.SEPARATOR+ NR.get(i) +Const.SEPARATOR+ SR.get(i) + "\n").replace('.', ','));
             }
 
             fw.close();
