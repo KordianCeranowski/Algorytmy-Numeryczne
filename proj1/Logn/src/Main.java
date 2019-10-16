@@ -7,7 +7,8 @@ public class Main {
 // Znajduje się ona w zmiennej Const.PATH_TO_FILE
 
 // Do tworzenia wykresów z osią x
-        Graph graph = new Graph(0, 2, 32000, 1000000);
+        Graph graph = new Graph(0, 2, 10000, 100);
+        graph.shortenData();
         graph.packDataToCSV();
 
 // Do tworzenia wykresów z osią n

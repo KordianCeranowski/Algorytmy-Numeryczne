@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="LognArt">
-    <output-path>$PROJECT_DIR$/out/artifacts/LognArt</output-path>
-    <root id="archive" name="LognArt.jar">
-      <element id="artifact" artifact-name="Logn" />
-    </root>
-  </artifact>
-</component>
