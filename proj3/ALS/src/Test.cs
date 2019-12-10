@@ -28,7 +28,7 @@ namespace RecommenderSystem
                     break;
             }
 
-            
+            Console.WriteLine("-----------------------------------------------");
             ALS.SHOW_TARGET_FUNCTION = showObjectiveFunction;
             ALS als = new ALS(d, dataSize);
 
