@@ -67,7 +67,7 @@ namespace RecommenderSystem
             }
 
             sumOfErrors = sumOfErrors / ValuesSavedForHidingTest.Count;
-            Console.WriteLine("Średni błąd: " + sumOfErrors);
+            Console.WriteLine("\nŚredni błąd: " + sumOfErrors);
         }
 
         public void Execute(double lambda, int iterations) 

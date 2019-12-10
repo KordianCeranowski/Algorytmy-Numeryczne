@@ -7,7 +7,7 @@ namespace RecommenderSystem
     {
         static void Main(string[] args)
         {
-            Test.Execute(Test.Size.SMALL, 10, 2, 0.1, true);
+            Test.Execute(Test.Size.SMALL, 15, 2, 0.1, false);
         }
     }
 }
