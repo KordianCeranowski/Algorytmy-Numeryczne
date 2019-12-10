@@ -2,7 +2,7 @@
 
 namespace RecommenderSystem
 {
-    static class ObjectiveFunction
+    internal static class ObjectiveFunction
     {
         public static double Calculate(int d, RMatrix R, Matrix U, Matrix P, double lambda)
         {

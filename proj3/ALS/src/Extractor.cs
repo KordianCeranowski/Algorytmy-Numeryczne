@@ -5,17 +5,16 @@ using System.Text.RegularExpressions;
 
 namespace RecommenderSystem
 {
-    class Extractor
+    internal class Extractor
     {
-        bool CONSOLE_OUTPUT = false;
+        private readonly bool CONSOLE_OUTPUT = false;
         public static readonly int DAWKA_PLIKU = 550000;
+        private readonly List<ItemFAT> All;
 
-        List<ItemFAT> All;
-
-        public static RMatrix createR(int iloscProduktow, int iloscUserow )
+        public static RMatrix createR(int iloscProduktow, int iloscUserow)
         {
             Extractor e = new Extractor();
-            
+
             return e.extractRfromBooks(iloscProduktow, iloscUserow);
         }
 
@@ -90,7 +89,7 @@ namespace RecommenderSystem
         }
     }
 
-    class Pigeonhole
+    internal class Pigeonhole
     {
         public List<Item> items;
         public Dictionary<string, int> users;
@@ -98,12 +97,12 @@ namespace RecommenderSystem
         //UWAGA NIE WYPEŁNIA DICTIONARY
         public Pigeonhole()
         {
-            this.items = new List<Item>();
+            items = new List<Item>();
         }
 
         public Pigeonhole(List<Item> list)
         {
-            this.items = list;
+            items = list;
             FillDictionary();
         }
 
@@ -150,9 +149,9 @@ namespace RecommenderSystem
         public void extractBestItems(int itemCount)
         {
             Sort();
-            if (this.items.Count > itemCount)
+            if (items.Count > itemCount)
             {
-                this.items = this.items.GetRange(0, itemCount);
+                items = items.GetRange(0, itemCount);
                 FillDictionary();
             }
             return;
@@ -162,7 +161,7 @@ namespace RecommenderSystem
         {
             RMatrix r = new RMatrix();
 
-            
+
 
             int standardItemID = 0;
 
@@ -243,7 +242,7 @@ namespace RecommenderSystem
         }
     }
 
-    class Item : IComparable<Item>
+    internal class Item : IComparable<Item>
     {
         public int ItemID { get; set; }
         public List<Tuple<string, int>> Rates { get; set; }
@@ -251,19 +250,19 @@ namespace RecommenderSystem
 
         public Item()
         {
-            this.Rates = new List<Tuple<string, int>>();
+            Rates = new List<Tuple<string, int>>();
         }
 
         public Item(int itemID)
         {
-            this.ItemID = itemID;
-            this.Rates = new List<Tuple<string, int>>();
+            ItemID = itemID;
+            Rates = new List<Tuple<string, int>>();
         }
 
         public Item(int itemID, List<Tuple<string, int>> rates)
         {
-            this.ItemID = itemID;
-            this.Rates = rates;
+            ItemID = itemID;
+            Rates = rates;
         }
 
         public int CompareTo(Item other)
@@ -274,25 +273,25 @@ namespace RecommenderSystem
         }
     }
 
-    class ItemFAT
+    internal class ItemFAT
     {
         public List<Tuple<string, int>> Rates { get; set; }
         public string Group { get; set; }
         public int ItemID { get; set; }
         public ItemFAT(int itemID, string group)
         {
-            this.ItemID = itemID;
-            this.Group = group;
-            this.Rates = new List<Tuple<string, int>>();
+            ItemID = itemID;
+            Group = group;
+            Rates = new List<Tuple<string, int>>();
         }
 
         public ItemFAT()
         {
-            this.Rates = new List<Tuple<string, int>>();
+            Rates = new List<Tuple<string, int>>();
         }
     }
 
-    class AmazonReader
+    internal class AmazonReader
     {
 
         public static List<ItemFAT> ReadFile(int maxItems)
@@ -314,10 +313,12 @@ namespace RecommenderSystem
                             productsList.Add(item);
                         }
 
-                        item = new ItemFAT();
-                        //if(productsList.Count > 480000)
-                        //    Console.WriteLine(line);  //w razie znalezienia Id w np. nazwie produku
-                        item.ItemID = Int32.Parse(line.Trim().Substring(3).Trim());
+                        item = new ItemFAT
+                        {
+                            //if(productsList.Count > 480000)
+                            //    Console.WriteLine(line);  //w razie znalezienia Id w np. nazwie produku
+                            ItemID = Int32.Parse(line.Trim().Substring(3).Trim())
+                        };
 
                         if (item.ItemID > maxItems)
                         {

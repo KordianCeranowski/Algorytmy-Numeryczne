@@ -3,9 +3,9 @@ using System.Diagnostics;
 
 namespace RecommenderSystem
 {
-    class Test
+    internal class Test
     {
-        const double PERCENT_TO_HIDE = 0.1;
+        private const double PERCENT_TO_HIDE = 0.1;
 
         public static void Execute(Size size, int iterations, int d, double lambda, bool showObjectiveFunction)
         {

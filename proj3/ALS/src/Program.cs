@@ -1,8 +1,8 @@
 ﻿namespace RecommenderSystem
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             Test.Execute(Test.Size.SMALL, 20, 2, 0.01, false);
             Test.Execute(Test.Size.SMALL, 20, 2, 0.1, false);

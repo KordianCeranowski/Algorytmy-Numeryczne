@@ -5,7 +5,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace RecommenderSystem
 {
-    class Serializer
+    internal class Serializer
     {
         public static readonly String FileExtension = ".rmat";
         public static readonly String Path = "../../../data/";

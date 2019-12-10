@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace RecommenderSystem 
+namespace RecommenderSystem
 {
-    class ALS 
+    internal class ALS
     {
         public static bool SHOW_TARGET_FUNCTION = true;
 
-        private RMatrix R;
-        private Matrix U, P;
+        private readonly RMatrix R;
+        private readonly Matrix U, P;
 
-        private int countOfFactors;
+        private readonly int countOfFactors;
 
 
         // Z pliku binarnego, jeśli istnieje
@@ -25,7 +25,7 @@ namespace RecommenderSystem
         }
 
         // Z pliku txt, jeśli istnieje
-        public ALS(int iloscFaktorow, int iloscProduktow, int iloscUserow) 
+        public ALS(int iloscFaktorow, int iloscProduktow, int iloscUserow)
         {
             R = Extractor.createR(iloscProduktow, iloscUserow);
             Serializer.PackRMatrix(R);
@@ -36,8 +36,7 @@ namespace RecommenderSystem
             countOfFactors = iloscFaktorow;
         }
 
-        
-        Dictionary<Tuple<int, int>, int> ValuesSavedForHidingTest;
+        private Dictionary<Tuple<int, int>, int> ValuesSavedForHidingTest;
 
         public void HidingTest(double lambda, int iterations, double percentToHide)
         {
@@ -69,24 +68,24 @@ namespace RecommenderSystem
             Console.WriteLine("\nŚredni błąd: " + sumOfErrors);
         }
 
-        public void Execute(double lambda, int iterations) 
+        public void Execute(double lambda, int iterations)
         {
-            for (int k = 0; k < iterations; k++) 
+            for (int k = 0; k < iterations; k++)
             {
                 if (!SHOW_TARGET_FUNCTION)
                 {
                     Console.Write("\b\b\b\b\b\b\b\b\b\b\b\bIteracja " + k);
                 }
-                
-                for (int u = 0; u < R.u; u++) 
+
+                for (int u = 0; u < R.u; u++)
                 {
                     List<int> productsRatedByU = R.FindAllProductsRatedByUser(u);
 
                     Matrix Piu = new Matrix(countOfFactors, productsRatedByU.Count);
 
-                    for (int i = 0; i < productsRatedByU.Count; i++) 
+                    for (int i = 0; i < productsRatedByU.Count; i++)
                     {
-                        for (int row = 0; row < countOfFactors; row++) 
+                        for (int row = 0; row < countOfFactors; row++)
                         {
                             Piu.Data[row, i] = P.Data[row, productsRatedByU[i]];
                         }
@@ -98,11 +97,11 @@ namespace RecommenderSystem
 
                     Matrix Vu = new Matrix(countOfFactors, 1);
 
-                    for (int col = 0; col < Piu.ColumnCount; col++) 
+                    for (int col = 0; col < Piu.ColumnCount; col++)
                     {
                         int rating = R[u, productsRatedByU[col]];
 
-                        for (int row = 0; row < countOfFactors; row++) 
+                        for (int row = 0; row < countOfFactors; row++)
                         {
                             Vu.Data[row, 0] += rating * Piu.Data[row, col];
                         }
@@ -111,22 +110,22 @@ namespace RecommenderSystem
 
                     Matrix X = Gauss.Calculate(Au, Vu);
 
-                    for (int row = 0; row < countOfFactors; row++) 
+                    for (int row = 0; row < countOfFactors; row++)
                     {
                         U.Data[row, u] = X.Data[row, 0];
                     }
 
                 }
 
-                for (int p = 0; p < R.p; p++) 
+                for (int p = 0; p < R.p; p++)
                 {
                     List<int> usersWhoRatedP = R.FindAllUsersWhoRatedProduct(p);
 
                     Matrix Uip = new Matrix(countOfFactors, usersWhoRatedP.Count);
 
-                    for (int i = 0; i < usersWhoRatedP.Count; i++) 
+                    for (int i = 0; i < usersWhoRatedP.Count; i++)
                     {
-                        for (int row = 0; row < countOfFactors; row++) 
+                        for (int row = 0; row < countOfFactors; row++)
                         {
                             Uip.Data[row, i] = U.Data[row, usersWhoRatedP[i]];
                         }
@@ -138,11 +137,11 @@ namespace RecommenderSystem
 
                     Matrix Wp = new Matrix(countOfFactors, 1);
 
-                    for (int col = 0; col < Uip.ColumnCount; col++) 
+                    for (int col = 0; col < Uip.ColumnCount; col++)
                     {
                         int rating = R[usersWhoRatedP[col], p];
 
-                        for (int row = 0; row < countOfFactors; row++) 
+                        for (int row = 0; row < countOfFactors; row++)
                         {
                             Wp.Data[row, 0] += rating * Uip.Data[row, col];
                         }
@@ -151,7 +150,7 @@ namespace RecommenderSystem
 
                     Matrix X = Gauss.Calculate(Bu, Wp);
 
-                    for (int row = 0; row < countOfFactors; row++) 
+                    for (int row = 0; row < countOfFactors; row++)
                     {
                         P.Data[row, p] = X.Data[row, 0];
                     }
