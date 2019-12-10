@@ -7,9 +7,14 @@ namespace RecommenderSystem
     {
         static void Main(string[] args)
         {
-            ALS als = new ALS(10, "p550u5050");
-            als.HidingTest(0.1, 10, 0.1);
-            
+            // tworzenie .rmt
+            //ALS als = new ALS(10, 500, 5000);
+
+            // odczyt .rmt
+
+            // uruchamianie
+            //als.HidingTest(0.1, 10, 0.1);
+
         }
     }
 }
