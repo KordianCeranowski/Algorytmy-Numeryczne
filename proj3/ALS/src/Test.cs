@@ -9,7 +9,7 @@ namespace RecommenderSystem
     {
         const double PERCENT_TO_HIDE = 0.1;
 
-        public static void start(int d, double lambda, Size size, int iterations, bool showObjectiveFunction)
+        public static void Execute(Size size, int iterations, int d, double lambda, bool showObjectiveFunction)
         {
             Stopwatch s = new Stopwatch();
 
