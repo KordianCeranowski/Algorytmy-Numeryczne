@@ -47,7 +47,7 @@ namespace RecommenderSystem
 
             double sumOfErrors = 0;
 
-            Console.WriteLine("\nWyniki testu zakrywania");
+            //Console.WriteLine("\nWyniki testu zakrywania");
             foreach (var item in ValuesSavedForHidingTest)
             {
                 var expected = item.Value;
