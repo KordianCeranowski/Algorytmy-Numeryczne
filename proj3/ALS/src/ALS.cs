@@ -6,7 +6,7 @@ namespace RecommenderSystem
 {
     class ALS 
     {
-        private readonly bool SHOW_TARGET_FUNCTION = true;
+        public static bool SHOW_TARGET_FUNCTION = true;
 
         private RMatrix R;
         private Matrix U, P;

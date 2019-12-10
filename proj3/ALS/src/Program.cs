@@ -7,20 +7,7 @@ namespace RecommenderSystem
     {
         static void Main(string[] args)
         {
-            // tworzenie .rmt
-            //ALS als = new ALS(10, 500, 5000);
-
-            // odczyt .rmt
-            Stopwatch s = new Stopwatch();
-            s.Start();
-            ALS als = new ALS(10, "p50u500");
-            als.HidingTest(0.1, 10, 0.1);
-            Console.WriteLine(((double)s.ElapsedMilliseconds)/1000);
-            // uruchamianie
-            //als.HidingTest(0.1, 10, 0.1);
-
-            //ALS small = new ALS(10, 500, 5000);
-
+            Test.start(2, 0.1, Test.Size.SMALL, 10, true);
         }
     }
 }
