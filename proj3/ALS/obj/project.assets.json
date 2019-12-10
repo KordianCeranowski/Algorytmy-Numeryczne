@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Kordian\\source\\repos\\ALS\\ALS.csproj",
-      "projectName": "ALS",
-      "projectPath": "C:\\Users\\Kordian\\source\\repos\\ALS\\ALS.csproj",
+      "projectUniqueName": "C:\\Users\\Kordian\\Desktop\\RecommenderSystem-b63cd337ce66c399919356bde95cdbffc1ec6b1d\\RecommenderSystem-b63cd337ce66c399919356bde95cdbffc1ec6b1d\\RecommenderSystem.csproj",
+      "projectName": "RecommenderSystem",
+      "projectPath": "C:\\Users\\Kordian\\Desktop\\RecommenderSystem-b63cd337ce66c399919356bde95cdbffc1ec6b1d\\RecommenderSystem-b63cd337ce66c399919356bde95cdbffc1ec6b1d\\RecommenderSystem.csproj",
       "packagesPath": "C:\\Users\\Kordian\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Kordian\\source\\repos\\ALS\\obj\\",
+      "outputPath": "C:\\Users\\Kordian\\Desktop\\RecommenderSystem-b63cd337ce66c399919356bde95cdbffc1ec6b1d\\RecommenderSystem-b63cd337ce66c399919356bde95cdbffc1ec6b1d\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Kordian\\AppData\\Roaming\\NuGet\\NuGet.Config",

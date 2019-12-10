@@ -1,8 +1,0 @@
-{
-  "runtimeOptions": {
-    "additionalProbingPaths": [
-      "C:\\Users\\Kordian\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\Kordian\\.nuget\\packages"
-    ]
-  }
-}
