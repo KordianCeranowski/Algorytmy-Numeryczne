@@ -11,9 +11,23 @@ namespace RecommenderSystem
 
         private int countOfFactors;
 
-        public ALS(int iloscFaktorow, int dawkaPliku, int iloscProduktow, int iloscUserow) 
+
+        // Z pliku binarnego, jeśli istnieje
+        public ALS(int iloscFaktorow, String FileName)
         {
-            R = Extractor.createR(dawkaPliku, iloscProduktow, iloscUserow);
+            R = Serializer.UnpackRMatrix(FileName);
+            U = new Matrix(iloscFaktorow, R.u);
+            U.FillRandom();
+            P = new Matrix(iloscFaktorow, R.p);
+            P.FillRandom();
+            countOfFactors = iloscFaktorow;
+        }
+
+        // Z pliku txt, jeśli istnieje
+        public ALS(int iloscFaktorow, int iloscProduktow, int iloscUserow) 
+        {
+            R = Extractor.createR(iloscProduktow, iloscUserow);
+            Serializer.PackRMatrix(R);
             U = new Matrix(iloscFaktorow, R.u);
             U.FillRandom();
             P = new Matrix(iloscFaktorow, R.p);
@@ -31,7 +45,7 @@ namespace RecommenderSystem
 
             double sumOfErrors = 0;
 
-            Console.WriteLine("Wyniki testu zakrywania");
+            Console.WriteLine("\nWyniki testu zakrywania");
             foreach (var item in ValuesSavedForHidingTest)
             {
                 var expected = item.Value;

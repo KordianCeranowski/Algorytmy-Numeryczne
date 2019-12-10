@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Kordian\\Desktop\\RecommenderSystem-b63cd337ce66c399919356bde95cdbffc1ec6b1d\\RecommenderSystem-b63cd337ce66c399919356bde95cdbffc1ec6b1d\\RecommenderSystem.csproj",
+      "projectUniqueName": "C:\\STUDIA\\5sem\\REPOZYTORIA\\Algorytmy-Numeryczne\\proj3\\ALS\\RecommenderSystem.csproj",
       "projectName": "RecommenderSystem",
-      "projectPath": "C:\\Users\\Kordian\\Desktop\\RecommenderSystem-b63cd337ce66c399919356bde95cdbffc1ec6b1d\\RecommenderSystem-b63cd337ce66c399919356bde95cdbffc1ec6b1d\\RecommenderSystem.csproj",
+      "projectPath": "C:\\STUDIA\\5sem\\REPOZYTORIA\\Algorytmy-Numeryczne\\proj3\\ALS\\RecommenderSystem.csproj",
       "packagesPath": "C:\\Users\\Kordian\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Kordian\\Desktop\\RecommenderSystem-b63cd337ce66c399919356bde95cdbffc1ec6b1d\\RecommenderSystem-b63cd337ce66c399919356bde95cdbffc1ec6b1d\\obj\\",
+      "outputPath": "C:\\STUDIA\\5sem\\REPOZYTORIA\\Algorytmy-Numeryczne\\proj3\\ALS\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Kordian\\AppData\\Roaming\\NuGet\\NuGet.Config",

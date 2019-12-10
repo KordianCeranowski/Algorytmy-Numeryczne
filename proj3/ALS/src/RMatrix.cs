@@ -9,6 +9,7 @@ namespace RecommenderSystem
 	//  Tylko jak wyskoczy poza index to zwraca 0 a nie rzuca nullpointerem
 	//  może się to potem doda jak się komuś chce
 
+    [Serializable]
 	class RMatrix
 	{
 		Dictionary<Tuple<int, int>, int> ratings;

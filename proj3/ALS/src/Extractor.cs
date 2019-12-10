@@ -11,19 +11,20 @@ namespace RecommenderSystem
     {
         bool CONSOLE_OUTPUT = false;
         public static readonly int SOLUTION = 200;
+        public static readonly int DAWKA_PLIKU = 550000;
 
         List<ItemFAT> All;
 
-        public static RMatrix createR(int dawkaPliku, int iloscProduktow, int iloscUserow )
+        public static RMatrix createR(int iloscProduktow, int iloscUserow )
         {
-            Extractor e = new Extractor(dawkaPliku);
+            Extractor e = new Extractor();
             
             return e.extractRfromBooks(iloscProduktow, iloscUserow);
         }
 
-        public Extractor(int dawkaPliku)
+        public Extractor()
         {
-            All = AmazonReader.ReadFile(dawkaPliku);
+            All = AmazonReader.ReadFile(DAWKA_PLIKU);
             if (CONSOLE_OUTPUT)
             {
                 Console.WriteLine("Successfully parsed " + All.Count + " items");
@@ -47,7 +48,7 @@ namespace RecommenderSystem
             }
 
             books.extractBestItems(iloscProduktow);
-            books.DeleteUselessSocietyMembers(iloscUserow);
+            books.extractBestUsers(iloscUserow);
 
             if (CONSOLE_OUTPUT)
             {
@@ -183,54 +184,7 @@ namespace RecommenderSystem
         }
 
 
-        private void DeleteUselessSocietyMembersByRatingsCount()
-        {
-            Dictionary<string, int> countOfRatesOfUser = new Dictionary<string, int>();
-
-            foreach (Item item in items)
-            {
-                foreach (Tuple<string, int> rating in item.Rates)
-                {
-                    string userASIN = rating.Item1;
-                    if (!countOfRatesOfUser.ContainsKey(userASIN))
-                    {
-                        countOfRatesOfUser.Add(userASIN, 0);
-                    }
-                    else
-                    {
-                        countOfRatesOfUser[userASIN]++;
-                    }
-                }
-            }
-            // ilość ocen została podliczona
-
-            foreach (Item item in items)
-            {
-                for (int i = 0; i < item.Rates.Count; i++)
-                {
-                    string userASIN = item.Rates[i].Item1;
-                    if (countOfRatesOfUser[userASIN] < Extractor.SOLUTION)
-                    {
-                        item.Rates.RemoveAt(i);
-                        i--;
-                    }
-                }
-            }
-            // bezużyteczne ludzkie śmiecie zniknęły
-
-            FillDictionary();
-
-            for (int i = 0; i < items.Count; i++)
-            {
-                if(items[i].Rates.Count == 0)
-                {
-                    items.RemoveAt(i);
-                    i--;
-                }
-            }
-        }
-
-        public void DeleteUselessSocietyMembers(int CountOfUsersToStay)
+        public void extractBestUsers(int usersCount)
         {
             Dictionary<string, int> countOfRatesOfUser = new Dictionary<string, int>();
 
@@ -260,7 +214,7 @@ namespace RecommenderSystem
             countOfRatesOfUserLIST.Sort((x, y) => y.Item2.CompareTo(x.Item2));
 
             List<string> validASINs = new List<string>();
-            for (int i = 0; i < CountOfUsersToStay; i++)
+            for (int i = 0; i < usersCount; i++)
             {
                 validASINs.Add(countOfRatesOfUserLIST[i].Item1);
             }
@@ -351,7 +305,7 @@ namespace RecommenderSystem
             try
             {
                 ItemFAT item = new ItemFAT();
-                using StreamReader sr = new StreamReader("../../../src/amazon-meta.txt");
+                using StreamReader sr = new StreamReader("../../../data/amazon-meta.txt");
                 while (sr.Peek() >= 0)
                 {
                     string line = sr.ReadLine();
