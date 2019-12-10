@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using System.Text.RegularExpressions;
 
 namespace RecommenderSystem
@@ -10,7 +8,6 @@ namespace RecommenderSystem
     class Extractor
     {
         bool CONSOLE_OUTPUT = false;
-        public static readonly int SOLUTION = 200;
         public static readonly int DAWKA_PLIKU = 550000;
 
         List<ItemFAT> All;

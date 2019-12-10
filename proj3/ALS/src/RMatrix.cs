@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace RecommenderSystem
 {
-//Można używać jak zwykłej macierzy dwuwymiarowej 
+    //Można używać jak zwykłej macierzy dwuwymiarowej 
 	//  tj. [0,2] zwróci ocenę (1-5) dla u = 0 i p = 2, albo 0 jeśli tej oceny nie ma 
 	//  Tylko jak wyskoczy poza index to zwraca 0 a nie rzuca nullpointerem
 	//  może się to potem doda jak się komuś chce
