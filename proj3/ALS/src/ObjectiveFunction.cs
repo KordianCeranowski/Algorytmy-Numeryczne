@@ -7,8 +7,7 @@ namespace RecommenderSystem
 {
 	static class ObjectiveFunction
 	{
-		static double lastResult = 1;
-		
+		//static double lastResult = 1;
 		public static double Calculate(RMatrix R, Matrix U, Matrix P, double lambda)
 		{
 			double firstSum = 0, secondSum = 0, thirdSum = 0;
@@ -35,9 +34,9 @@ namespace RecommenderSystem
 
             //Console.WriteLine($"{result/lastResult*100}");
             Console.WriteLine(result);
-            lastResult = result;
+            //lastResult = result;
 
-		    	return result;
+		    return result;
 		}
 	}
 }

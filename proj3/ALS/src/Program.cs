@@ -7,13 +7,9 @@ namespace RecommenderSystem
     {
         static void Main(string[] args)
         {
-
-            RMatrix R1 = Serializer.UnpackRMatrix("p1050u10050");
-
-
-            Console.WriteLine("stop");
-            //ALS als = new ALS(10, 550, 5050);
-
+            ALS als = new ALS(10, "p550u5050");
+            als.HidingTest(0.1, 10, 0.1);
+            
         }
     }
 }

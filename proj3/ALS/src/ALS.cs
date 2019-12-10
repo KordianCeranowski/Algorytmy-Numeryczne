@@ -6,6 +6,8 @@ namespace RecommenderSystem
 {
     class ALS 
     {
+        private readonly bool SHOW_TARGET_FUNCTION = true;
+
         private RMatrix R;
         private Matrix U, P;
 
@@ -72,9 +74,11 @@ namespace RecommenderSystem
         {
             for (int k = 0; k < iterations; k++) 
             {
-               
-                Console.Write("\b\b\b\b\b\b\b\b\b\b\b\bIteracja " + k);
-
+                if (!SHOW_TARGET_FUNCTION)
+                {
+                    Console.Write("\b\b\b\b\b\b\b\b\b\b\b\bIteracja " + k);
+                }
+                
                 for (int u = 0; u < R.u; u++) 
                 {
                     List<int> productsRatedByU = R.FindAllProductsRatedByUser(u);
@@ -154,11 +158,11 @@ namespace RecommenderSystem
                     }
                 }
 
-
-
-                //ObjectiveFunction.Calculate(R, U, P, lambda);
+                if (SHOW_TARGET_FUNCTION)
+                {
+                    ObjectiveFunction.Calculate(R, U, P, lambda);
+                }
             }
         }
     }
 }
-
