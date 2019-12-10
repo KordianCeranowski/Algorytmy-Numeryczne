@@ -160,7 +160,7 @@ namespace RecommenderSystem
 
                 if (SHOW_TARGET_FUNCTION)
                 {
-                    ObjectiveFunction.Calculate(R, U, P, lambda);
+                    ObjectiveFunction.Calculate(countOfFactors, R, U, P, lambda);
                 }
             }
         }

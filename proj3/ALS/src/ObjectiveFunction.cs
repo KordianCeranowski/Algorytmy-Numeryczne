@@ -4,23 +4,38 @@ namespace RecommenderSystem
 {
     static class ObjectiveFunction
     {
-        public static double Calculate(RMatrix R, Matrix U, Matrix P, double lambda)
+        public static double Calculate(int d, RMatrix R, Matrix U, Matrix P, double lambda)
         {
             double firstSum = 0, secondSum = 0, result = 0;
-            Matrix uMatrix, pMatrix;
 
             for (int u = 0; u < U.ColumnCount; u++)
             {
-                uMatrix = U.GetVector(u);
-
                 for (int p = 0; p < P.ColumnCount; p++)
                 {
-                    pMatrix = P.GetVector(p);
 
-                    result += Math.Pow(R[u, p] - (uMatrix.GetTransposed() * pMatrix).Data[0, 0], 2);
-                    firstSum += pMatrix.GetSquaredNorm();
+                    double sum = 0;
+                    for (int row = 0; row < d; row++)
+                    {
+                        sum += U.Data[row, u] * P.Data[row, p];
+                    }
+                    result += Math.Pow((R[u, p] - sum), 2);
+
+                    double squaredNormFromP = 0;
+                    for (int row = 0; row < d; row++)
+                    {
+                        squaredNormFromP += Math.Pow(P.Data[row, p], 2);
+                    }
+                    firstSum += squaredNormFromP;
+
                 }
-                secondSum += uMatrix.GetSquaredNorm();
+
+                double squaredNormFromU = 0;
+                for (int row = 0; row < d; row++)
+                {
+                    squaredNormFromU += Math.Pow(U.Data[row, u], 2);
+                }
+                secondSum += squaredNormFromU;
+
             }
 
             result += lambda * (firstSum + secondSum);
