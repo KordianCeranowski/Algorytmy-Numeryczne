@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\STUDIA\\5sem\\REPOZYTORIA\\Algorytmy-Numeryczne\\proj3\\ALS\\RecommenderSystem.csproj",
+      "projectUniqueName": "C:\\STUDIA\\5sem\\REPOZYTORIA\\fajnal kurwo\\Algorytmy-Numeryczne\\proj3\\ALS\\RecommenderSystem.csproj",
       "projectName": "RecommenderSystem",
-      "projectPath": "C:\\STUDIA\\5sem\\REPOZYTORIA\\Algorytmy-Numeryczne\\proj3\\ALS\\RecommenderSystem.csproj",
+      "projectPath": "C:\\STUDIA\\5sem\\REPOZYTORIA\\fajnal kurwo\\Algorytmy-Numeryczne\\proj3\\ALS\\RecommenderSystem.csproj",
       "packagesPath": "C:\\Users\\Kordian\\.nuget\\packages\\",
-      "outputPath": "C:\\STUDIA\\5sem\\REPOZYTORIA\\Algorytmy-Numeryczne\\proj3\\ALS\\obj\\",
+      "outputPath": "C:\\STUDIA\\5sem\\REPOZYTORIA\\fajnal kurwo\\Algorytmy-Numeryczne\\proj3\\ALS\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Kordian\\AppData\\Roaming\\NuGet\\NuGet.Config",

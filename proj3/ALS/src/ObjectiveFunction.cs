@@ -1,51 +1,63 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace RecommenderSystem
 {
-	internal static class ObjectiveFunction
-	{
-		public static double Calculate(int d, RMatrix R, Matrix U, Matrix P, double lambda)
-		{
-			double firstSum = 0, secondSum = 0, result = 0;
+    internal static class ObjectiveFunction
+    {
+        public static void Calculate(int d, RMatrix R, Matrix U, Matrix P, double lambda)
+        {
 
-			for (int u = 0; u < U.ColumnCount; u++)
-			{
-				for (int p = 0; p < P.ColumnCount; p++)
-				{
-					if (R[u, p] != 0)
-					{
-						double sum = 0;
+            double sum1 = 0;
 
-						for (int row = 0; row < d; row++)
-						{
-							sum += U.Data[row, u] * P.Data[row, p];
-						}
-						result += Math.Pow((R[u, p] - sum), 2);
-					}
-					
-					double squaredNormFromP = 0;
+            foreach (var kvp in R.ratings)
+            {
+                double r_up = kvp.Value;
+                int u = kvp.Key.Item1;
+                int p = kvp.Key.Item2;
 
-					for (int row = 0; row < d; row++)
-					{
-						squaredNormFromP += Math.Pow(P.Data[row, p], 2);
-					}
-					firstSum += squaredNormFromP;
-				}
+                double vectorSum = 0;
+                for (int row = 0; row < d; row++)
+                {
+                    vectorSum += U.Data[row, u] * P.Data[row, p];
+                }
 
-				double squaredNormFromU = 0;
+                sum1 += Math.Pow(r_up + vectorSum, 2);
+            }
 
-				for (int row = 0; row < d; row++)
-				{
-					squaredNormFromU += Math.Pow(U.Data[row, u], 2);
-				}
-				secondSum += squaredNormFromU;
-			}
 
-			result += lambda * (firstSum + secondSum);
+            double sum2 = 0;
 
-			Console.WriteLine(result);
+            for (int col = 0; col < U.ColumnCount; col++)
+            {
+                double vectorSum = 0;
+                for (int row = 0; row < d; row++)
+                {
+                    vectorSum += Math.Pow(U.Data[row, col], 2);
+                }
 
-			return result;
-		}
-	}
+                sum2 += vectorSum;
+            }
+
+
+            double sum3 = 0;
+
+            for (int col = 0; col < P.ColumnCount; col++)
+            {
+                double vectorSum = 0;
+                for (int row = 0; row < d; row++)
+                {
+                    vectorSum += Math.Pow(P.Data[row, col], 2);
+                }
+
+                sum3 += vectorSum;
+            }
+
+
+            double total = sum1 + lambda * (sum2 + sum3);
+
+            //Console.WriteLine($"sum1 = ${sum1}, sum2 = ${sum2}, sum3 = ${sum3}, total = ${total}");
+            Console.WriteLine(total);
+        }
+    }
 }

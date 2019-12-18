@@ -11,7 +11,7 @@ namespace RecommenderSystem
     [Serializable]
     internal class RMatrix
     {
-        private readonly Dictionary<Tuple<int, int>, int> ratings;
+        public Dictionary<Tuple<int, int>, int> ratings;
         public int u, p;
 
         public RMatrix()
