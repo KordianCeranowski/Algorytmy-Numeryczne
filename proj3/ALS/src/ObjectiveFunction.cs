@@ -16,7 +16,7 @@ namespace RecommenderSystem
 					{
 						double sum = 0;
 
-						for (int row = 0; row < U.RowCount; row++)
+						for (int row = 0; row < d; row++)
 						{
 							sum += U.Data[row, u] * P.Data[row, p];
 						}
@@ -25,7 +25,7 @@ namespace RecommenderSystem
 					
 					double squaredNormFromP = 0;
 
-					for (int row = 0; row < P.RowCount; row++)
+					for (int row = 0; row < d; row++)
 					{
 						squaredNormFromP += Math.Pow(P.Data[row, p], 2);
 					}
